@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Pago</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet"></head>
+<body>
+    <div class="card container mt-5">
+        <div class="row alert alert-secondary" role="alert">
+            <h2>Payment for example</h2>
+        </div>
+        <form class="needs-validation" novalidate>
+            <div class="form-group">
+                <div class="alert alert-danger" role="alert">
+                    Some fields are missing
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="cardNumber">Card #</label>
+                        <input type="text" class="form-control" id="cardNumber" placeholder="XXXXXXXXXXXXXXX" required>
+                        <div class="invalid-feedback">
+                            Please enter your card number.
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="cvc">CVC #</label>
+                        <input type="text" class="form-control" id="cvc" placeholder="0000" required>
+                        <div class="invalid-feedback">
+                            Please enter your CVC number.
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="amount">Amount</label>
+                        <input type="text" class="form-control" id="amount" placeholder="$" required>
+                        <div class="invalid-feedback">
+                            Please enter the amount.
+                        </div>
+                    </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+                    <div class="invalid-feedback">
+                        Please enter your first name.
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+                    <div class="invalid-feedback">
+                        Please enter your last name.
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" id="city" placeholder="City" required>
+                    <div class="invalid-feedback">
+                        Please enter your city.
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="state">State</label>
+                    <select id="state" class="form-control" required>
+                        <option selected>Pick a state</option>
+                        <option>Perú</option>
+                        <option>Chile</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Please select a state.
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="postalCode">Postal Code</label>
+                    <input type="text" class="form-control" id="postalCode" placeholder="Postal Code" required>
+                    <div class="invalid-feedback">
+                        Please enter your postal code.
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>We accept:</label>
+                    <div class="d-flex align-items-center">
+                        <div class="form-check mr-3">
+                            <input class="form-check-input" type="radio" name="paymentMethod" id="visa" value="visa" required>
+                            <label class="form-check-label" for="visa">
+                                <i class="bi bi-credit-card" style="font-size: 2rem;"></i> 
+                            </label>
+                        </div>
+                        <div class="form-check mr-3">
+                            <input class="form-check-input" type="radio" name="paymentMethod" id="mastercard" value="mastercard" required>
+                            <label class="form-check-label" for="mastercard">
+                                <i class="bi bi-credit-card-2-back" style="font-size: 2rem;"></i>
+                            </label>
+                        </div>
+                        <div class="form-check mr-3">
+                            <input class="form-check-input" type="radio" name="paymentMethod" id="amex" value="amex" required>
+                            <label class="form-check-label" for="amex">
+                                <i class="bi bi-credit-card-2-front" style="font-size: 2rem;"></i> 
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="paymentMethod" id="dinner" value="dinner" required>
+                            <label class="form-check-label" for="dinner">
+                                <i class="bi bi-credit-card-2-front" style="font-size: 2rem;"></i> 
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="invalid-feedback">
+                        Please select a payment method.
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" id="message" rows="3" placeholder="Add any notes here." required></textarea>
+                    <div class="invalid-feedback">
+                        Please enter your message.
+                    </div>
+                </div>
+            </div>
+            <div class="row alert alert-secondary d-flex justify-content-end" role="alert">
+                <button type="button" class="btn btn-secondary mr-2">Cancel</button>
+                <button type="submit" class="btn btn-primary ">Send</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        //Validación
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                var forms = document.getElementsByClassName('needs-validation');
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+</body>
+</html>
